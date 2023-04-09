@@ -316,7 +316,7 @@ static void pen_charge_notifier_work(struct work_struct *work)
 	return;
 }
 
-int pen_charge_state_notifier_register_client(struct notifier_block *nb)
+static int pen_charge_state_notifier_register_client(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&pen_charge_state_notifier_list, nb);
 }
@@ -328,7 +328,7 @@ static int pen_charge_state_notifier_unregister_client(struct notifier_block *nb
 }
 EXPORT_SYMBOL(pen_charge_state_notifier_unregister_client);
 
-void pen_charge_state_notifier_call_chain(unsigned long val, void *v)
+static void pen_charge_state_notifier_call_chain(unsigned long val, void *v)
 {
 	struct idtp9220_device_info *di = container_of(pen_notifier_work,
 							struct idtp9220_device_info,
