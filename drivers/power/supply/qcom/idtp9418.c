@@ -322,7 +322,7 @@ int pen_charge_state_notifier_register_client(struct notifier_block *nb)
 }
 EXPORT_SYMBOL(pen_charge_state_notifier_register_client);
 
-int pen_charge_state_notifier_unregister_client(struct notifier_block *nb)
+static int pen_charge_state_notifier_unregister_client(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&pen_charge_state_notifier_list, nb);
 }
